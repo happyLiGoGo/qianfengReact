@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { CounterProvider } from "./components/counterStore";
-import App from "./App";
+// 函数式组件的原理
+// const createApp = props => {
+//   return <h1>welcome {props.title}</h1>;
+// };
+// const App = createApp({
+//   title: "dd"
+// });
+const App = props => {
+  return <h1>welcome {props.title}</h1>;
+};
 
-console.log(CounterProvider);
-
-ReactDOM.render(
-  <CounterProvider>
-    <App />
-  </CounterProvider>,
-  document.querySelector("#root")
-);
+ReactDOM.render(<App title="dd" />, document.querySelector("#root"));
