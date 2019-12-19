@@ -1,33 +1,34 @@
-import React, {Component, createContext} from 'react'
-const {Provider, Consumer: CounterConsumer} = createContext()
+import React, { Component, createContext } from "react";
+const { Provider, Consumer: CounterConsumer } = createContext();
 class CounterProvider extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      count:100
-    }
+      count: 100
+    };
   }
-  incrementCount= () => {
+  incrementCount = () => {
     this.setState({
-      count:this.state.count+1
-    })
-  }
-  decrementCount=() => {
+      count: this.state.count + 1
+    });
+  };
+  decrementCount = () => {
     this.setState({
-      count:this.state.count-1
-    })
-  }
-  render(){
+      count: this.state.count - 1
+    });
+  };
+  render() {
     return (
       <Provider
-      value={{
-        count: this.state.count,
-        onIncrementCount:this.incrementCount,
-        onDecrementCount: this.decrementCount
-
-  }}>{this.props.children}</Provider>
-    )
+        value={{
+          count: this.state.count,
+          onIncrementCount: this.incrementCount,
+          onDecrementCount: this.decrementCount
+        }}
+      >
+        {this.props.children}
+      </Provider>
+    );
   }
-
 }
-export {CounterConsumer, CounterProvider}
+export { CounterConsumer, CounterProvider };
